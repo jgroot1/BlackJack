@@ -6,7 +6,7 @@ suits = ["hearts", "diamonds", "clubs", "spades"]
 # deck with the card values
 full_deck = {f"{card} of {suit}": card_value for suit in suits for card, card_value in deck.items()}
 
-# create the deck that is being shuffeld and the cards get pulled from
+# create the deck that is being shuffled and the cards get pulled from
 shuffled_deck = random.sample(list(full_deck), len(full_deck))
 
 # draws cards
