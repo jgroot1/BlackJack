@@ -17,15 +17,15 @@ def player_turn(shuffled_deck, card_values):
         # stops the loop if the player does not want a card
         elif draw_card is False:
             turn = False
-            print(f"hand value {hand_value}\n"
-                  f"hand {hand}\n")
+            print(f"hand: {" ,".join(hand)}\n"
+                  f"hand value: {hand_value}\n")
             return
 
         # lets the player hit or stand and gives information about the hand if the player has 2 or more cards
         if len(hand) >= 2:
 
-            print(f"hand value {hand_value}\n"
-                  f"hand {hand}")
+            print(f"hand: {" ,".join(hand)}\n"
+                  f"hand value: {hand_value}\n")
 
             draw_card = choice("draw a card?", "drawing card", "standing")
 
