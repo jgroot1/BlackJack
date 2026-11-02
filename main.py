@@ -11,6 +11,8 @@ card_values = {f"{card} of {suit}": card_value for suit in suits for card, card_
 
 # create the deck that is being shuffled and the cards get pulled from
 shuffled_deck = random.sample(list(card_values), len(card_values))
+shuffled_deck = ["Ace of hearts", "Ace of spades", "Ace of diamonds", "Ace of clubs", "Two of Hearts", "Two of Spades", "Two of Diamonds", "Two of Clubs"]
+print(shuffled_deck)
 
 # dealer draws 2 checks for 21 and shows 1 card
 dealer_hand, shuffled_deck = dealer_begin(shuffled_deck, card_values)
