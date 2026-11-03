@@ -1,3 +1,4 @@
+from utils.ace_converter import *
 # draws 2 cards for the dealer checks for 21 and shows only the first card
 def dealer_begin(shuffled_deck, card_values):
 
@@ -21,29 +22,26 @@ def dealer_turn(dealer_hand, shuffled_deck, card_values):
     while dealer_draws_cards:
 
         dealer_value = sum(card_values[card] for card in dealer_hand)
-        print(f"dealer hand {dealer_hand}\n"
+        print(f"dealer hand {", ".join(dealer_hand)}\n"
               f"dealer value {dealer_value}")
 
         # dealer draws while total card value of the dealer lower than 16
         if dealer_value <= 16:
             dealer_hand += [shuffled_deck.pop(0)]
 
-        # handeling hand values higher than 21 with aces, also needs to be in the player
+        # handling hand values higher than 21 with aces, also needs to be in the player
         elif dealer_value > 21:
+            ace_converter(dealer_hand, card_values)
 
-            for ace in ["Ace of hearts", "Ace of spades", "Ace of diamonds", "Ace of clubs"]:
-                if ace in dealer_hand and card_values[ace] == 11:
-                    card_values[ace] = 1
-                    print(f"{ace}, now has a value of one")
-                    dealer_value = sum(card_values[card] for card in dealer_hand)
+        if dealer_value <= 21:
+            print(f"dealer hand {", ".join(dealer_hand)}\n"
+                  f"dealer value {dealer_value}")
+            return
 
-                    if dealer_value <= 21:
-                        print(f"dealer hand {dealer_hand}\n")
-                        break
+        if dealer_value > 21:
+            print(f"dealer hand {", ".join(dealer_hand)}\n"
+                  f"dealer value {dealer_value}")
+            return
 
-            if dealer_value > 21:
-                print(f"dealer bust", dealer_value)
-            break
-
-        elif dealer_value >= 17:
+        if dealer_value >= 17:
             dealer_draws_cards = False
