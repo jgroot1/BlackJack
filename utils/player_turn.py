@@ -10,7 +10,8 @@ def player_turn(shuffled_deck, card_values):
     while True:
         # prints hand
         hand_value = sum(card_values[card] for card in hand)
-        print(f"hand: {" ,".join(hand)} \n"
+        print("---------- current hand ----------\n"
+              f"hand: {" ,".join(hand)} \n"
               f"Hand value: {hand_value} \n")
 
         if hand_value == 21:
@@ -19,6 +20,7 @@ def player_turn(shuffled_deck, card_values):
 
         if hand_value > 21:
             ace_converter(hand, card_values)
+            hand_value = sum(card_values[card] for card in hand)
             if hand_value > 21:
                 print("bust!")
                 return
@@ -28,12 +30,14 @@ def player_turn(shuffled_deck, card_values):
             draw_card = choice("draw a card?", "drawing card", "standing")
 
             # draws card
-            if draw_card is True:
+            if draw_card:
+                print(shuffled_deck[0],"drawn")
                 hand += [shuffled_deck.pop(0)]
 
             # quits on blackjack, bust and stand
-            elif draw_card is False:
-                print(f"hand: {" ,".join(hand)}\n"
+            elif not draw_card:
+                print("---------- player final hand ----------\n"
+                      f"hand: {" ,".join(hand)}\n"
                       f"hand value: {hand_value}\n")
                 return
 
