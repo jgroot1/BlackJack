@@ -4,7 +4,9 @@ from utils.dealer import *
 from utils.player_turn import *
 
 def main():
-    deck = {"Two": 2, "Three": 3, "Four": 4, "Five": 5, "Six": 6, "Seven": 7, "Eight": 8, "Nine": 9, "Ten": 10, "Jack": 10, "Queen": 10, "King": 10, "Ace": 11}
+    deck = {"Two": 2, "Three": 3, "Four": 4, "Five": 5, "Six": 6, "Seven": 7, "Eight": 8,
+            "Nine": 9, "Ten": 10, "Jack": 10, "Queen": 10, "King": 10, "Ace": 11}
+
     suits = ["hearts", "diamonds", "clubs", "spades"]
 
     # deck with the card values
@@ -21,6 +23,7 @@ def main():
 
     #dealers turn
     dealer_turn(dealer_hand, shuffled_deck, card_values)
+
 
 if __name__ == "__main__":
     main()

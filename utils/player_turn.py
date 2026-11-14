@@ -15,14 +15,16 @@ def player_turn(shuffled_deck, card_values):
               f"Hand value: {hand_value} \n")
 
         if hand_value == 21:
-            print("Blackjack!")
+            print("Blackjack!\n")
             return
 
         if hand_value > 21:
             ace_converter(hand, card_values)
             hand_value = sum(card_values[card] for card in hand)
+            print("hand value changed to: ", hand_value)
+
             if hand_value > 21:
-                print("bust!")
+                print("bust!\n")
                 return
 
         # choice for drawing card
@@ -40,4 +42,3 @@ def player_turn(shuffled_deck, card_values):
                       f"hand: {" ,".join(hand)}\n"
                       f"hand value: {hand_value}\n")
                 return
-

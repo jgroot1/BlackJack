@@ -49,6 +49,3 @@ def dealer_turn(dealer_hand, shuffled_deck, card_values):
         elif dealer_value >= 17:
             print("dealer stands on", dealer_value)
             return
-
-
-
