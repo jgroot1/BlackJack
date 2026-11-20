@@ -24,9 +24,9 @@ def main():
     player_hand, shuffled_deck, card_values = player_turn(shuffled_deck, card_values, dealer_hand)
 
     #dealers turn
-    dealer_hand, shuffled_deck, card_values = dealer_turn(dealer_hand, shuffled_deck, card_values)
+    dealer_hand, shuffled_deck, card_values = dealer_turn(dealer_hand, shuffled_deck, card_values, player_hand)
 
-    results(player_hand, dealer_hand, card_values)
+    print(results(player_hand, dealer_hand, card_values))
 
 if __name__ == "__main__":
     main()

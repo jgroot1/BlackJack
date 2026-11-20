@@ -22,10 +22,10 @@ def dealer_begin(shuffled_deck, card_values):
     return dealer_hand, shuffled_deck
 
 # the turn for the dealer
-def dealer_turn(dealer_hand, shuffled_deck, card_values):
+def dealer_turn(dealer_hand, shuffled_deck, card_values, player_hand):
 
-    # skips dealer turn if the dealer has blackjack
-    if dealer_hand == "blackjack":
+    # skips dealer turn if the dealer has blackjack or player is bust
+    if dealer_hand == "blackjack" or player_hand == "bust":
         return dealer_hand, shuffled_deck, card_values
 
     # start dealer turn

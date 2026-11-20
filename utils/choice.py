@@ -15,5 +15,4 @@ def choice(prompt, positive, negative):
         except ValueError:
             print("Please enter either yes or no.\n")
             picked = None
-    print()
     return picked
