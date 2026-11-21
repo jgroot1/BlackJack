@@ -23,8 +23,8 @@ def player_turn(shuffled_deck, card_values,dealer_hand):
         # prints hand
         player_value = sum(card_values[card] for card in player_hand)
         print("---------- current hand ----------\n"
-              f"hand: {" ,".join(player_hand)} \n"
-              f"Hand value: {player_value} \n")
+              f"hand: {" ,".join(player_hand)}\n"
+              f"Hand value: {player_value}\n")
 
         # ends the player turn if the hand is above 21 and there is not an ace that can be converted into a 1
         if player_value > 21:
