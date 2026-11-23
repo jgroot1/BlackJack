@@ -33,7 +33,7 @@ def player_turn(shuffled_deck, card_values,dealer_hand):
 
             if player_value > 21:
                 player_hand = "bust"
-                print("---bust!---\n")
+                print("---bust!---")
                 return player_hand, shuffled_deck, card_values
 
         # choice for drawing card
