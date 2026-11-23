@@ -32,11 +32,11 @@ def results(player_hand, dealer_hand, card_values, wins):
               f"Hand value: {dealer_value}\n")
 
         # outputs who has won
-        if player_value >= player_value:
+        if player_value >= dealer_value:
             winner = "player"
-        elif player_value <= player_value:
+        elif player_value <= dealer_value:
             winner = "dealer"
-        elif player_value == player_value:
+        elif player_value == dealer_value:
             winner = "draw"
 
     # prints who has won
