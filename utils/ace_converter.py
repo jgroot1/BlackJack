@@ -1,5 +1,5 @@
 # converts the value of aces from 11 to 1 if the hand value is higher than 21
-def ace_converter(hand,card_values):
+def ace_converter(hand, card_values):
     # looks for aces in the hand
     for ace in ["Ace of hearts", "Ace of spades", "Ace of diamonds", "Ace of clubs"]:
 

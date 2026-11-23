@@ -1,10 +1,9 @@
-def results(player_hand, dealer_hand, card_values):
-
+# function for giving the resuelts of the blackjack game
+def results(player_hand, dealer_hand, card_values, wins):
     print("\n---------- results ----------\n")
 
-
-    if (player_hand  in ["bust", "blackjack"] or
-         dealer_hand in ["bust", "blackjack"]):
+    if (player_hand in ["bust", "blackjack"] or
+        dealer_hand in ["bust", "blackjack"]):
 
         # used for when the player or dealer has blackjack or is bust
         match player_hand, dealer_hand:
@@ -15,15 +14,16 @@ def results(player_hand, dealer_hand, card_values):
             case _, "blackjack":
                 winner = "dealer"
             case "bust", _:
-                winner =  "dealer"
+                winner = "dealer"
             case _, "bust":
-                winner =  "player"
+                winner = "player"
 
     else:
         # used when the player and dealer both have a hand of cards instead of blackjack or bust
-        dealer_value = sum(card_values[card] for card in dealer_hand)
         player_value = sum(card_values[player] for player in player_hand)
+        dealer_value = sum(card_values[card] for card in dealer_hand)
 
+        # print the players and the dealers hand
         print(" ---player hand---\n"
               f"{" ,".join(player_hand)}\n"
               f"Hand value: {player_value}\n\n"
@@ -31,17 +31,25 @@ def results(player_hand, dealer_hand, card_values):
               f"{" ,".join(dealer_hand)}\n"
               f"Hand value: {dealer_value}\n")
 
-        if dealer_value >= player_value:
-            winner =  "dealer"
-        elif dealer_value <= player_value:
-            winner =  "player"
-        elif dealer_value == player_value:
-            winner =  "draw"
+        # outputs who has won
+        if player_value >= player_value:
+            winner = "player"
+        elif player_value <= player_value:
+            winner = "dealer"
+        elif player_value == player_value:
+            winner = "draw"
 
-    # prints who wins
+    # prints who has won
     if winner in ["dealer", "player"]:
         print(winner, "has won!\n")
     else:
         print("Draw!\n")
+
+    # prints and counts the amount each person has won
+    wins[winner] += 1
+    print(
+        f"You have won {wins["player"]} times\n"
+        f"dealer has won {wins["dealer"]} times\n"
+        f"there were {wins["draw"]} draws\n")
 
     return winner

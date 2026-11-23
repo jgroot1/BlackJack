@@ -1,8 +1,9 @@
-from utils.choice import choice
 from utils.ace_converter import ace_converter
+from utils.choice import choice
 
-def player_turn(shuffled_deck, card_values,dealer_hand):
 
+# the turn of the player
+def player_turn(shuffled_deck, card_values, dealer_hand):
     # draws 2 cards
     player_hand = shuffled_deck[:2]
     shuffled_deck = shuffled_deck[2:]
@@ -42,12 +43,12 @@ def player_turn(shuffled_deck, card_values,dealer_hand):
 
             # draws card
             if draw_card:
-                print(shuffled_deck[0],"drawn\n")
+                print(shuffled_deck[0], "drawn\n")
                 player_hand += [shuffled_deck.pop(0)]
 
             # quits on blackjack, bust and stand
             if not draw_card:
                 print("---------- player final hand ----------\n"
-                        f"hand: {" ,".join(player_hand)}\n"
-                        f"hand value: {player_value}\n")
+                      f"hand: {" ,".join(player_hand)}\n"
+                      f"hand value: {player_value}\n")
                 return player_hand, shuffled_deck, card_values

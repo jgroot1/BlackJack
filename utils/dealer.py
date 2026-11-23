@@ -1,8 +1,8 @@
 from utils.ace_converter import ace_converter
 
-# draws 2 cards for the dealer checks for 21 and shows only the first card
-def dealer_begin(shuffled_deck, card_values):
 
+# draws 2 cards for the dealer checks for 21 and shows only the first card
+def dealer_start(shuffled_deck, card_values):
     # gives 2 cards to the dealer
     dealer_hand = shuffled_deck[:2]
     shuffled_deck = shuffled_deck[2:]
@@ -11,7 +11,7 @@ def dealer_begin(shuffled_deck, card_values):
     # checks for 21
     if card_values[dealer_hand[0]] + card_values[dealer_hand[1]] == 21:
         print("dealer has blackjack\n"
-             f"dealer hand: {" and ".join(dealer_hand)}\n")
+              f"dealer hand: {" and ".join(dealer_hand)}\n")
         dealer_hand = "blackjack"
 
     # prints the dealers card
@@ -21,9 +21,9 @@ def dealer_begin(shuffled_deck, card_values):
 
     return dealer_hand, shuffled_deck
 
+
 # the turn for the dealer
 def dealer_turn(dealer_hand, shuffled_deck, card_values, player_hand):
-
     # skips dealer turn if the dealer has blackjack or player is bust
     if dealer_hand == "blackjack" or player_hand == "bust":
         return dealer_hand, shuffled_deck, card_values
