@@ -51,11 +51,13 @@ def dealer_turn(dealer_hand, shuffled_deck, card_values, player_hand):
             ace_converter(dealer_hand, card_values)
             dealer_value = sum(card_values[card] for card in dealer_hand)
 
+            # dealer goes bust on higher numbers than 21
             if dealer_value > 21:
                 print("dealer bust!")
                 dealer_hand = "bust"
                 return dealer_hand, shuffled_deck, card_values
 
+        # dealer stands on 17 and higher
         elif dealer_value >= 17:
             print("dealer stands on", dealer_value)
             return dealer_hand, shuffled_deck, card_values
