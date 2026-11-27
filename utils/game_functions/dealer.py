@@ -1,4 +1,4 @@
-from utils.ace_converter import ace_converter
+from utils.game_functions.ace_converter import ace_converter
 
 
 # draws 2 cards for the dealer checks for 21 and shows only the first card

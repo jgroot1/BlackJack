@@ -1,24 +1,29 @@
-from utils.ace_converter import ace_converter
+from utils.game_functions.ace_converter import ace_converter
 from utils.choice import choice
 
+# the setup for the player turn
+def setup_player_turn(shuffled_deck, card_values, dealer_hand):
+    start_player_turn = True
 
-# the turn of the player
-def player_turn(shuffled_deck, card_values, dealer_hand):
     # draws 2 cards
     player_hand = shuffled_deck[:2]
     shuffled_deck = shuffled_deck[2:]
     player_value = sum(card_values[card] for card in player_hand)
 
-    # stops player turn on blackjack
+    # skips player turn on blackjack
     if player_value == 21:
         player_hand = "blackjack"
         print("--- Blackjack!---\n")
-        return player_hand, shuffled_deck, card_values
+        start_player_turn = False
 
-    # stops player turn when the dealer has blackjack
-    if dealer_hand == "blackjack":
-        return player_hand, shuffled_deck, card_values
+    # skips player turn when the dealer has blackjack
+    elif dealer_hand == "blackjack":
+        start_player_turn = False
+    return player_hand, shuffled_deck, card_values, start_player_turn
 
+
+# player turn loop
+def player_card_drawing(player_hand, shuffled_deck, card_values):
     while True:
 
         # prints hand
